@@ -19,7 +19,8 @@ withDockerRegistry(credentialsId: 'nexus', url: 'http://127.0.0.1:8123/repositor
 sh '''docker tag helloworld:$BUILD_ID 127.0.0.1:8123/repository/docker-hosted/helloworld:$BUILD_ID
 
                docker push 127.0.0.1:8123/repository/docker-hosted/helloworld:$BUILD_ID'''
-}
+        }
       }
     }
+  }
 }
