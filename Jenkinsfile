@@ -12,10 +12,14 @@ pipeline {
         sh 'mvn compile'
       }
     }
-#   stage('sonarqube') {
-#     steps {
-#       sh '''mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=danny-ros_hello-world-war -Dsonar.login=f005147983107de2273f61b4fdfdab8cdf6f5986'''
-#      }
-#    }
-  }
+   stage('docker tag push') {
+      steps {
+     
+withDockerRegistry(credentialsId: 'nexus', url: 'http://127.0.0.1:8123/repository/docker-hosted/') {
+sh '''docker tag helloworld:$BUILD_ID 127.0.0.1:8123/repository/docker-hosted/helloworld:$BUILD_ID
+
+               docker push 127.0.0.1:8123/repository/docker-hosted/helloworld:$BUILD_ID'''
+}
+      }
+    }
 }
