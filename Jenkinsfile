@@ -14,7 +14,7 @@ pipeline {
     }
     stage('sonarqube') {
       steps {
-        sh '''mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=admin_hello-world-war -Dsonar.login=de12ef46116c13a7bcae7eb232057c7c8ccdbaa4
+        sh '''mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=danny-ros_hello-world-war -Dsonar.login=f005147983107de2273f61b4fdfdab8cdf6f5986
 '''
       }
     }
