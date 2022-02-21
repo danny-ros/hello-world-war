@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  environment {
+      sonar_cred = credentials('SONAR_TOKEN')
+    }
   stages {
     stage('checkout code') {
       steps {
