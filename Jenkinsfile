@@ -26,7 +26,7 @@ pipeline {
     // Uploading Docker images into Nexus Registry
     stage('Tag and Push to Nexus') {
       steps {
-            withDockerRegistry(credentialsId: 'Nexus' , url: 'http://127.0.0.1:8123/repository/docker-hosted/') {
+            withDockerRegistry(url: 'http://127.0.0.1:8123/repository/docker-hosted/') {
         sh '''docker tag helloworld:$BUILD_ID 127.0.0.1:8123/repository/docker-hosted/helloworld:$BUILD_ID
                docker push 127.0.0.1:8123/repository/docker-hosted/helloworld:$BUILD_ID'''
               }
