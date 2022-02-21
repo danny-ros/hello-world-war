@@ -17,7 +17,7 @@ pipeline {
     }
    stage('SonarCloud') {
       steps {
-        sh '''mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.login=$sonar_cred'''
+        sh '''mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=danny-ros_hello-world-war -Dsonar.login=0681c18563298f4f69fc1eb7b253435a77567f0c'''
       }
     }
   }
