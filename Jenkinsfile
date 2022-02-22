@@ -11,10 +11,9 @@ pipeline {
           cleanWs()
       }
     }
-    stage('Maven Compile ') {
+    stage('Maven Compile') {
       steps {
-        sh '''mvn compile
-              mvn clean package'''
+        sh '''mvn compile'''
       }
     }
     stage('SonarCloud') {
