@@ -6,14 +6,14 @@ pipeline {
         git(url: 'https://github.com/danny-ros/hello-world-war.git', branch: 'dev', changelog: true)
       }
     }
-      stage('Clean before clone') {
+    stage('Clean before clone') {
         steps {
           cleanWs()
       }
     }
     stage('Maven Compile') {
       steps {
-        sh '''mvn compile'''
+        sh 'mvn compile'
       }
     }
     stage('SonarCloud') {
@@ -35,7 +35,7 @@ pipeline {
                docker push localhost:8123/repository/docker-hosted/helloworld:$BUILD_ID'''
               }
       }
-      post {
+    post {
      success {
         slackSend(message: "Build deployed successfully - ${env.JOB_NAME} #${env.BUILD_NUMBER} - (${env.BUILD_URL}) ", channel: 'danny-dev', color: '#008000')
      }
