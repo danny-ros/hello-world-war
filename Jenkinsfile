@@ -6,11 +6,7 @@ pipeline {
         git(url: 'https://github.com/danny-ros/hello-world-war.git', branch: 'dev', changelog: true)
       }
     }
-    stage('Clean before clone') {
-        steps {
-          cleanWs()
-      }
-    }
+    
     stage('Maven Compile') {
       steps {
         sh 'mvn compile'
