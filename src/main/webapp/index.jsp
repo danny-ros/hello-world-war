@@ -2,6 +2,8 @@
 <html>
 <head>
 <title>Hello World!</title>
+<title>Hello Lidor</title>
+<title>Thank You for the great course</title>
 </head>
 <body>
 	<h1>Hello World!</h1>
